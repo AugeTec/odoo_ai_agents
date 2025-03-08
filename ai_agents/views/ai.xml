@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <!-- ai_agents.ai Form View -->
+        <record id="ai_agents_ai_form_view" model="ir.ui.view">
+            <field name="name">ai_agents.ai.form</field>
+            <field name="model">ai_agents.ai</field>
+            <field name="arch" type="xml">
+                <form string="Agent">
+                    <header>
+                        <button name="action_chat" string="Chat" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                            </group>
+                            <group>
+                                <field name="model_name"/>
+                                <field name="api_url"/>
+                                <field name="api_key"/>
+                            </group>
+                            <label for="base_context" string="Base Context"/>
+                            <field name="base_context"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ai_agents.ai Tree View -->
+        <record id="ai_agents_ai_tree_view" model="ir.ui.view">
+            <field name="name">ai_agents.ai.tree</field>
+            <field name="model">ai_agents.ai</field>
+            <field name="arch" type="xml">
+                <tree string="Agents">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ai_agents.ai Action -->
+        <record id="ai_agents_ai_action" model="ir.actions.act_window">
+            <field name="name">Agents</field>
+            <field name="res_model">ai_agents.ai</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- ai_agents.ai Menu -->
+        <menuitem id="menu_ai_agents_ai" name="Agents" parent="menu_ai_agents_root" action="ai_agents_ai_action"/>
+
+    </data>
+</odoo>

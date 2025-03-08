@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!-- Extend form view ai_agents_ai_form_view  with field knowledge_article_ids -->
+        <record id="ai_agents_ai_form_view_knowledge" model="ir.ui.view">
+            <field name="name">ai_agents.ai.form.knowledge</field>
+            <field name="model">ai_agents.ai</field>
+            <field name="inherit_id" ref="ai_agents.ai_agents_ai_form_view"/>
+            <field name="arch" type="xml">
+                <field name="base_context" position="after">
+                    <label for="knowledge_article_ids" string="Knowledge Articles"/>
+                    <field name="knowledge_article_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

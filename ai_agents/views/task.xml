@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- From view for ai_agents.task -->
+        <record id="ai_agents_task_form_view" model="ir.ui.view">
+            <field name="name">ai_agents.task.form</field>
+            <field name="model">ai_agents.task</field>
+            <field name="arch" type="xml">
+                <form string="Channel Completion">
+                    <header>
+                        <button name="generate_response" string="Generate Response" type="object"
+                                class="oe_highlight"/>
+
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="channel_id"/>
+                            <field name="user_input" widget="html"/>
+                            <field name="response" widget="html"/>
+                        </group>
+                        <notebook>
+                            <page string="Details">
+                                <group>
+                                    <field name="prompt"/>
+                                    <field name="user_context"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view for ai_agents.task -->
+        <record id="ai_agents_task_tree_view" model="ir.ui.view">
+            <field name="name">ai_agents.task.tree</field>
+            <field name="model">ai_agents.task</field>
+            <field name="arch" type="xml">
+                <tree string="Channel Completions">
+                    <field name="channel_id"/>
+                    <field name="user_id"/>
+                    <field name="user_input" widget="html"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for ai_agents.task -->
+        <record id="ai_agents_task_action" model="ir.actions.act_window">
+            <field name="name">Channel Completions</field>
+            <field name="res_model">ai_agents.task</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu item for ai_agents.task -->
+        <menuitem id="menu_ai_agents_task" name="Channel Completions" parent="menu_ai_agents_root"
+                  action="ai_agents_task_action" sequence="20"/>
+    </data>
+</odoo>

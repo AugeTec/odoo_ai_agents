@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <!-- mia Root Menu -->
+        <menuitem id="menu_ai_agents_root" name="Agents" sequence="10"
+                  web_icon="ai_agents,static/description/icon.png"/>
+    </data>
+</odoo>

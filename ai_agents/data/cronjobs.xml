@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Cron Job for discuss.channel _cron_process_ai_tasks -->
+        <record id="ir_cron_process_ai_tasks" model="ir.cron">
+            <field name="name">AI Agents: Process tasks</field>
+            <field name="model_id" ref="model_ai_agents_task"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_process_ai_tasks()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall">False</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>
